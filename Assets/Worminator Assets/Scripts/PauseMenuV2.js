@@ -5,7 +5,7 @@ function Start(){
 	pauseEnabled = false;
 	Time.timeScale = 1;
 	AudioListener.volume = 1;
-	Screen.showCursor = true;
+	Cursor.visible = true;
 }
 
 function Update(){
@@ -16,13 +16,13 @@ function Update(){
 			pauseEnabled = false;
 			Time.timeScale = 1;
 			AudioListener.volume = 1;
-			Screen.showCursor = true;			
+			Cursor.visible = true;			
 		}
 		else if(pauseEnabled == false){
 			pauseEnabled = true;
 			AudioListener.volume = 0;
 			Time.timeScale = 0;
-			Screen.showCursor = true;
+			Cursor.visible = true;
 		}
 	}
 }
@@ -40,7 +40,7 @@ GUI.skin.button.font = pauseMenuFont;
 		pauseEnabled = false;
 	Time.timeScale = 1;
 	AudioListener.volume = 1;
-	Screen.showCursor = true;
+	Cursor.visible = true;
 		}
 		if(GUI.Button(Rect(Screen.width /2 - 100,Screen.height /2 -50,250,50), "Main Menu")){
 	

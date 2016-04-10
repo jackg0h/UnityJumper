@@ -1,12 +1,12 @@
-﻿renderer.material.color = Color.black;
+﻿GetComponent.<Renderer>().material.color = Color.black;
 
 function OnMouseEnter () 
 {
-	renderer.material.color = Color.red;
+	GetComponent.<Renderer>().material.color = Color.red;
 }
 function OnMouseExit()
 {
-	renderer.material.color = Color.black;
+	GetComponent.<Renderer>().material.color = Color.black;
 }
 
 

@@ -10,16 +10,16 @@ function Update () {
 	switch(LIVES)
 	{
 	case 3:
-	guiTexture.texture = health3;
+	GetComponent.<GUITexture>().texture = health3;
 	break;
 	case 2:
-	guiTexture.texture = health2;
+	GetComponent.<GUITexture>().texture = health2;
 	break;
 	case 1:
-	guiTexture.texture = health1;
+	GetComponent.<GUITexture>().texture = health1;
 	break;
 	case 0:
-	guiTexture.texture = health0;
+	GetComponent.<GUITexture>().texture = health0;
 	DeathZone.playerIsRunOutLife = true;
 	break;
 	}

@@ -18,7 +18,7 @@ restSeconds = CountSeconds - (guiTime);
 roundedRestSeconds = Mathf.CeilToInt(restSeconds);
 seconds = roundedRestSeconds % 60;
 minutes = roundedRestSeconds / 60;
-guiText.material.color = Color.red;
+GetComponent.<GUIText>().material.color = Color.red;
 textTime = String.Format ("{0:00}:{1:00}", minutes, seconds);
 GetComponent(GUIText).text = textTime;
 if(minutes <= 0 && seconds <= 0)

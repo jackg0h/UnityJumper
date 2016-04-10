@@ -103,13 +103,13 @@ public class CharacterShadow : MonoBehaviour
 		
 		// create a child camera/projector object
 		child = new GameObject("ChildCamProjector", typeof(Camera), typeof(Projector), typeof(CharacterShadowHelper));
-		child.camera.clearFlags = CameraClearFlags.Color;
-		child.camera.backgroundColor = Color.white;
-		child.camera.cullingMask = (1<<privateLayer);
-		child.camera.isOrthoGraphic = true;
+		child.GetComponent<Camera>().clearFlags = CameraClearFlags.Color;
+		child.GetComponent<Camera>().backgroundColor = Color.white;
+		child.GetComponent<Camera>().cullingMask = (1<<privateLayer);
+		child.GetComponent<Camera>().orthographic = true;
 		
 		Projector proj = (Projector)child.GetComponent(typeof(Projector));
-		proj.isOrthoGraphic = true;
+		proj.orthographic = true;
 		proj.ignoreLayers = (1<<targetLayer);
 		proj.material = projectorMaterial;
 		proj.material.SetTexture("_FalloffTex", fadeoutTexture);
@@ -125,7 +125,7 @@ public class CharacterShadow : MonoBehaviour
 			shadowmap = new RenderTexture( textureSize, textureSize, 16 );
 			shadowmap.isPowerOfTwo = true;
 
-			child.camera.targetTexture = shadowmap;			
+			child.GetComponent<Camera>().targetTexture = shadowmap;			
 			Projector proj = (Projector)child.GetComponent(typeof(Projector));
 			proj.material.SetTexture("_ShadowTex", shadowmap);
 		}
@@ -191,8 +191,8 @@ public class CharacterShadow : MonoBehaviour
 	{
 		Vector3 center = target.transform.position;
 		float radius = 5.0f;
-		if( target.renderer ) {
-			Bounds b = target.renderer.bounds;
+		if( target.GetComponent<Renderer>() ) {
+			Bounds b = target.GetComponent<Renderer>().bounds;
 			center = b.center;
 			radius = b.extents.magnitude;
 		}
@@ -202,12 +202,12 @@ public class CharacterShadow : MonoBehaviour
 		
 		child.transform.LookAt( center );
 		
-		child.camera.orthographicSize = radius;
-		child.camera.nearClipPlane = distance - radius;
-		child.camera.farClipPlane = distance + radius;
+		child.GetComponent<Camera>().orthographicSize = radius;
+		child.GetComponent<Camera>().nearClipPlane = distance - radius;
+		child.GetComponent<Camera>().farClipPlane = distance + radius;
 		
 		Projector proj = (Projector)child.GetComponent(typeof(Projector));
-		proj.orthoGraphicSize = radius;
+		proj.orthographicSize = radius;
 		proj.nearClipPlane = distance;
 		proj.farClipPlane = distance + castingDistance;
 		proj.material.SetTexture("_ShadowTex", shadowmap);

@@ -30,6 +30,6 @@ function Shoot() {
 	clone.name = "Shot";
 	
 	//Add speed to the target
-	clone.rigidbody.velocity = transform.TransformDirection (Vector3.forward * Velocity);
+	clone.GetComponent.<Rigidbody>().velocity = transform.TransformDirection (Vector3.forward * Velocity);
 	
 }

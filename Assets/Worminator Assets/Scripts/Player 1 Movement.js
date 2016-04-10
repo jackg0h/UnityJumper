@@ -13,24 +13,24 @@ function Update ()
     if(Input.GetKey("w")||(Input.GetKey(KeyCode.UpArrow)))
     {
        var HelperForward = Helper.transform.TransformDirection (Vector3.forward);
-       rigidbody.AddForce (HelperForward * MoveSpeed);   
+       GetComponent.<Rigidbody>().AddForce (HelperForward * MoveSpeed);   
     }
  
     if(Input.GetKey("s")||(Input.GetKey(KeyCode.DownArrow)))
     {
        var HelperBack = Helper.transform.TransformDirection (Vector3.back);
-       rigidbody.AddForce (HelperBack * MoveSpeed);
+       GetComponent.<Rigidbody>().AddForce (HelperBack * MoveSpeed);
     }
     
     if(Input.GetKey("a")||(Input.GetKey(KeyCode.LeftArrow)))
     {
        var HelperLeft = Helper.transform.TransformDirection (Vector3.left);
-       rigidbody.AddForce (HelperLeft * MoveSpeed);
+       GetComponent.<Rigidbody>().AddForce (HelperLeft * MoveSpeed);
     }
  
     if(Input.GetKey("d")||(Input.GetKey(KeyCode.RightArrow)))
     {
        var HelperRight = Helper.transform.TransformDirection (Vector3.right);
-       rigidbody.AddForce (HelperRight * MoveSpeed);
+       GetComponent.<Rigidbody>().AddForce (HelperRight * MoveSpeed);
     }
 }
